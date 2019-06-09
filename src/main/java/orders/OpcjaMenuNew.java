@@ -1,0 +1,6 @@
+package orders;
+
+public enum OpcjaMenuNew {
+
+    ZLOZ_ZAMOWIENIE, STAN_ZAMOWIENIA, WYPISZ_ZAMOWIENIA, RACHUNEK, WYJDZ, NIE_POPRAWNIE
+}
