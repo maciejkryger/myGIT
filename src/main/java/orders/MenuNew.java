@@ -20,6 +20,7 @@ public class MenuNew {
         builder.append("2. Stan zamówienia").append("\n");
         builder.append("3. Wypisz zamówienia").append("\n");
         builder.append("4. Wystaw rachunek").append("\n");
+        builder.append("5. Anuluj/Usuń zamówienie").append("\n");
         builder.append("0. Zakończ").append("\n");
         System.out.println(builder);
     }
@@ -54,6 +55,9 @@ public class MenuNew {
 
             case 4:
                 return OpcjaMenuNew.RACHUNEK;
+
+            case 5:
+                return OpcjaMenuNew.ANULUJ_ZAMOWIENIE;
 
             default:
                 return OpcjaMenuNew.NIE_POPRAWNIE;

@@ -23,6 +23,7 @@ public class ZamowienieNew {
     int numer;
     float cena;
     List<PozycjaZamowieniaNew> listaPozycji; // nie mogłem tego zapamiętać !!!!
+    List<ZamowienieNew> listaNowychZamowien; //nowe by usunąć zamówienie z listy zamówień
 
 
     public ZamowienieNew (int numer){
@@ -47,9 +48,16 @@ public class ZamowienieNew {
         return listaPozycji;
     }
 
+    public List<ZamowienieNew> pobierzZamowienia() {return listaNowychZamowien;}
+
     public void dodajPozycje(String nazwaPozycji, float cenaPozycji){    // nie mogłem tego zapamiętać !!!!
         PozycjaZamowieniaNew pozycja = new PozycjaZamowieniaNew(nazwaPozycji,cenaPozycji); // nie mogłem tego zapamiętać !!!!
         listaPozycji.add(pozycja); // nie mogłem tego zapamiętać !!!!
+    }
+
+    public void usunPozycje(PozycjaZamowieniaNew wybranaPozycja){
+        listaPozycji.remove(wybranaPozycja);
+
     }
 
     public void dodajPozycje(PozycjaZamowieniaNew wybranaPozycja){
@@ -101,6 +109,7 @@ public class ZamowienieNew {
         builder.append("***************************\n");
         System.out.println(builder);
     }
+
 
 
 }

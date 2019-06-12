@@ -27,7 +27,14 @@ public class ProjektMainNew {
             switch (wybor) {
                 case ZLOZ_ZAMOWIENIE:
 
-                    ZamowienieNew noweZamowienie = dodajZamowienieDoListy(listaNowychZamowien);
+//                    ZamowienieNew noweZamowienie = dodajZamowienieDoListy(listaNowychZamowien);
+
+                    int numer = listaNowychZamowien.size() + 1; // nie mogłem tego zapamiętać !!!!
+                    // by zdefiniować numer jako zmienną i przypisać mu wielkość listy powiększone o 1
+                    ZamowienieNew noweZamowienie = new ZamowienieNew(numer); // nie mogłem tego zapamiętać !!!! by był numer w ()
+                    listaNowychZamowien.add(noweZamowienie); // o tym zapomniałem i nic się nie wyświetało !!!
+
+
                     MiniMenu miniMenu = new MiniMenu();
 
                     boolean dodajPozycje=true;
@@ -59,7 +66,10 @@ public class ProjektMainNew {
                                 break;
 
                             case USUN:
-
+                                System.out.print("Podaj numer pozycji: ");
+                                int numerPozycjiUsun = skaner.nextInt();
+                                //PozycjaZamowieniaNew pozycjaUsun = noweZamowienie.pobierzNumer(numerPozycjiUsun);
+                               // noweZamowienie.usunPozycje(pozycjaUsun);
                                 dodajPozycje = true;
                                 break;
 
@@ -175,6 +185,16 @@ public class ProjektMainNew {
                     System.out.println(builder);
                     menu.powrot();
                     break;
+
+                case ANULUJ_ZAMOWIENIE:
+                    System.out.print("Usuń zamówienie numer:");
+                    Scanner skaner3 = new Scanner(System.in);
+                    int numerAnulowany = skaner3.nextInt();
+                    listaNowychZamowien.remove(numerAnulowany-1);
+                    linia();
+                    menu.powrot();
+                    break;
+
 
                 case WYJDZ:
                     doWidzenia();
