@@ -1,9 +1,6 @@
 package orders;
 
 
-import orders.ProjektUtils;
-import orders.Firma;
-
 import java.util.ArrayList;
 import java.util.InputMismatchException;
 import java.util.List;
@@ -27,12 +24,12 @@ public class ProjektMainNew {
             switch (wybor) {
                 case ZLOZ_ZAMOWIENIE:
 
-//                    ZamowienieNew noweZamowienie = dodajZamowienieDoListy(listaNowychZamowien);
+
 
                     int numer = listaNowychZamowien.size() + 1; // nie mogłem tego zapamiętać !!!!
                     // by zdefiniować numer jako zmienną i przypisać mu wielkość listy powiększone o 1
-                    ZamowienieNew noweZamowienie = new ZamowienieNew(numer); // nie mogłem tego zapamiętać !!!! by był numer w ()
-                    listaNowychZamowien.add(noweZamowienie); // o tym zapomniałem i nic się nie wyświetało !!!
+                    ZamowienieNew newOrder = new ZamowienieNew(numer); // nie mogłem tego zapamiętać !!!! by był numer w ()
+                    listaNowychZamowien.add(newOrder); // o tym zapomniałem i nic się nie wyświetało !!!
 
 
                     MiniMenu miniMenu = new MiniMenu();
@@ -40,8 +37,14 @@ public class ProjektMainNew {
                     boolean dodajPozycje=true;
 
                     while (dodajPozycje) {
+                        /**
+                         * mapa pozycji to menu z potrawami
+                         */
                         BazaPozycjiMenu mapaPozycji = wypisaniePozycjiZBazy();
+
+                        //mini menu to opcje dodaj pozycje, usun pozycje, anuluj zamownienie, wroc do meni
                         miniMenu.wyswietlMiniMenu();
+
                         Scanner skaner = new Scanner(System.in);
                         OpcjaMiniMenu wyborMiniMenu = miniMenu.pobierzWyborMiniMenu();
 
@@ -62,19 +65,24 @@ public class ProjektMainNew {
                                     break;
                                 }
                                 PozycjaZamowieniaNew wybranaPozycja = mapaPozycji.pobierzPozycje(numerPozycji);
-                                noweZamowienie.dodajPozycje(wybranaPozycja);
+                                newOrder.dodajPozycje(wybranaPozycja);
                                 break;
 
                             case USUN:
-                                System.out.print("Podaj numer pozycji: ");
-                                int numerPozycjiUsun = skaner.nextInt();
-                                //PozycjaZamowieniaNew pozycjaUsun = noweZamowienie.pobierzNumer(numerPozycjiUsun);
-                               // noweZamowienie.usunPozycje(pozycjaUsun);
+                                ItemsActions itemsActions = new ItemsActions();
+                                itemsActions.printOrderItems(newOrder);
+
+
+                                System.out.print("Podaj numer pozycji do usunięcia: ");
+                                int orderItemToDelNumber = skaner.nextInt();
+
+                                itemsActions.delOrderItem(newOrder, orderItemToDelNumber);
                                 dodajPozycje = true;
                                 break;
 
+
                             case ANULUJ:
-                                listaNowychZamowien.remove(noweZamowienie);
+                                listaNowychZamowien.remove(newOrder);
                                 dodajPozycje = false;
                                 break;
 
@@ -219,13 +227,7 @@ public class ProjektMainNew {
         return mapaPozycji;
     }
 
-    private static ZamowienieNew dodajZamowienieDoListy(List<ZamowienieNew> listaNowychZamowien) {
-        int numer = listaNowychZamowien.size() + 1; // nie mogłem tego zapamiętać !!!!
-        // by zdefiniować numer jako zmienną i przypisać mu wielkość listy powiększone o 1
-        ZamowienieNew noweZamowienie = new ZamowienieNew(numer); // nie mogłem tego zapamiętać !!!! by był numer w ()
-        listaNowychZamowien.add(noweZamowienie); // o tym zapomniałem i nic się nie wyświetało !!!
-        return noweZamowienie;
-    }
+
 
 
 
