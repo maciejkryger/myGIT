@@ -1,14 +1,13 @@
 package orders;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
 public class ItemsActions {
 
-    List<PozycjaZamowieniaNew> listaPozycji;
-    ZamowienieNew zamowienieNew;
-    PozycjaZamowieniaNew pozycjaZamowieniaNew;
+    List<OrderItem> itemsList;
+    NewOrder newOrder;
+    OrderItem orderItem;
     int deletedItem;
     Scanner skaner= new Scanner(System.in);
 
@@ -17,20 +16,27 @@ public class ItemsActions {
 
     }
 
-    public ItemsActions(ZamowienieNew zamowienieNew){
-        this.zamowienieNew=zamowienieNew;
+    public ItemsActions(NewOrder newOrder){
+        this.newOrder = newOrder;
     }
 
-    public ItemsActions(ZamowienieNew zamowienieNew, PozycjaZamowieniaNew pozycjaZamowieniaNew){
-        this.zamowienieNew=zamowienieNew;
-        this.pozycjaZamowieniaNew=pozycjaZamowieniaNew;
+    public ItemsActions(NewOrder newOrder, OrderItem orderItem){
+        this.newOrder = newOrder;
+        this.orderItem = orderItem;
     }
 
-    public void printOrderItems(ZamowienieNew noweZamowienie){
-        List <PozycjaZamowieniaNew> pozycjeZamowienia = noweZamowienie.listaPozycji;
-        pozycjeZamowienia=noweZamowienie.listaPozycji;
+
+    public void addItem(OrderItem selectedNumber){
+       itemsList.add(selectedNumber);
+
+    }
+
+
+    public void printOrderItems(NewOrder newOrder){
+        List <OrderItem> pozycjeZamowienia = newOrder.itemList;
+        pozycjeZamowienia=newOrder.itemList;
         int nrPoz =1;
-        for (PozycjaZamowieniaNew pozycja: pozycjeZamowienia){
+        for (OrderItem pozycja: pozycjeZamowienia){
             System.out.print(nrPoz+" ");
             System.out.println(pozycja);
             nrPoz++;
@@ -39,13 +45,14 @@ public class ItemsActions {
     }
 
 
-    public void delOrderItem(ZamowienieNew noweZamowienie, int deletedItem){
+    public void delOrderItem(NewOrder newOrder, int deletedItem){
 
-        listaPozycji=noweZamowienie.listaPozycji;
+        itemsList=newOrder.itemList;
 
-        listaPozycji.remove(deletedItem-1);
+        itemsList.remove(deletedItem-1);
 
     }
+
 
 
 }

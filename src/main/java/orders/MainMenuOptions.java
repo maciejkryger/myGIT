@@ -1,6 +1,6 @@
 package orders;
 
-public enum OpcjaMenuNew {
+public enum MainMenuOptions {
 
     ZLOZ_ZAMOWIENIE, STAN_ZAMOWIENIA, WYPISZ_ZAMOWIENIA, RACHUNEK, ANULUJ_ZAMOWIENIE, WYJDZ, NIE_POPRAWNIE
 }

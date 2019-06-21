@@ -3,7 +3,7 @@ package orders;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
-public class ProjektUtils {
+public class ProjectUtils {
 
     /**
      * Metoda tworzy date z napisu

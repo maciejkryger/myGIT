@@ -3,19 +3,21 @@ package orders;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
+import static orders.PrintMessages.numberErrorMessage;
+
 public class MiniMenu {
 
     public void wyswietlMiniMenu(){
         StringBuilder builder = new StringBuilder();
-        builder.append("**************************************************").append("\n").
-                append("* DODAJ(1) |  USUN(2)     | ANULUJ(3)  | WRÓĆ(0) *\n").
-                append("* POZYCJE  | OST.POZYCJE  | ZAMÓWIENIE | DO MENU *\n").
-                append("**************************************************");
+        builder.append("***********************************************************").append("\n").
+                append("* DODAJ(1) |  WYPISZ(2)|  USUN(3)  | ANULUJ(4)  | WRÓĆ(0) *\n").
+                append("* POZYCJE  |  POZYCJE  |  POZYCJE  | ZAMÓWIENIE | DO MENU *\n").
+                append("***********************************************************");
         System.out.println(builder);
     }
 
-    public OpcjaMiniMenu pobierzWyborMiniMenu (){
 
+    public MiniMenuOptions pobierzWyborMiniMenu (){
 
         Scanner skaner = new Scanner(System.in);
         int wyborMiniMenu=-1;
@@ -23,25 +25,28 @@ public class MiniMenu {
             System.out.print("wybierz:");
             wyborMiniMenu = skaner.nextInt();
         } catch (InputMismatchException e) {
-            System.out.println("ilość/numer musi być cyfrą");
+            numberErrorMessage();
 
         }
 
         switch (wyborMiniMenu){
             case 1:
-                return OpcjaMiniMenu.DODAJ;
+                return MiniMenuOptions.DODAJ;
 
             case 2:
-                return OpcjaMiniMenu.USUN;
+                return MiniMenuOptions.WYPISZ;
 
             case 3:
-                return OpcjaMiniMenu.ANULUJ;
+                return MiniMenuOptions.USUN;
+
+            case 4:
+                return MiniMenuOptions.ANULUJ;
 
             case 0:
-                return OpcjaMiniMenu.WROC;
+                return MiniMenuOptions.WROC;
 
             default:
-                return OpcjaMiniMenu.BLEDNY_WYBOR;
+                return MiniMenuOptions.BLEDNY_WYBOR;
         }
 
     }

@@ -2,14 +2,14 @@ package orders;
 
 import java.util.Scanner;
 
-import static orders.Wypisz.komunikatWyjatek;
+import static orders.PrintMessages.numberErrorMessage;
 
-public class MenuNew {
+public class MainMenu {
 
 //    void wyswietl
 //    pobierz wybor (switch - scaner)
-//    powrot
-    public void wyswietlMenu(){
+//    backMove
+    public void showMainMenu(){
         StringBuilder builder = new StringBuilder();
         builder.append("*******************************").append("\n");
         builder.append("***  RESTAURACJA  JAVA FOOD ***").append("\n");
@@ -25,7 +25,7 @@ public class MenuNew {
         System.out.println(builder);
     }
 
-    public OpcjaMenuNew  pobierzWyborMenu(){  // nie mogłem tego zapamiętać !!!!
+    public MainMenuOptions getMenuSelection(){  // nie mogłem tego zapamiętać !!!!
         System.out.print("Wybierz opcje menu:");
         Scanner skaner = new Scanner(System.in);
 
@@ -35,37 +35,37 @@ public class MenuNew {
         {
         wybor = skaner.nextInt();
         }catch(Exception e){
-            komunikatWyjatek();
+            numberErrorMessage();
 
         }
 
 
         switch (wybor){
             case 0:
-                return OpcjaMenuNew.WYJDZ;
+                return MainMenuOptions.WYJDZ;
 
             case 1:
-                return OpcjaMenuNew.ZLOZ_ZAMOWIENIE;
+                return MainMenuOptions.ZLOZ_ZAMOWIENIE;
 
             case 2:
-                return OpcjaMenuNew.STAN_ZAMOWIENIA;
+                return MainMenuOptions.STAN_ZAMOWIENIA;
 
             case 3:
-                return OpcjaMenuNew.WYPISZ_ZAMOWIENIA;
+                return MainMenuOptions.WYPISZ_ZAMOWIENIA;
 
             case 4:
-                return OpcjaMenuNew.RACHUNEK;
+                return MainMenuOptions.RACHUNEK;
 
             case 5:
-                return OpcjaMenuNew.ANULUJ_ZAMOWIENIE;
+                return MainMenuOptions.ANULUJ_ZAMOWIENIE;
 
             default:
-                return OpcjaMenuNew.NIE_POPRAWNIE;
+                return MainMenuOptions.NIE_POPRAWNIE;
         }
 
     }
 
-    public void powrot(){
+    public void backMove(){
         System.out.println("---------------------------------------------");
         System.out.println("wciśnij ENTER, by wrócić do panelu zamówienia");
         System.out.print("---------------------------------------------");
