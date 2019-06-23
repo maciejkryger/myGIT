@@ -1,6 +1,10 @@
 package orders;
 
 
+import orders.enums.MainMenuOptions;
+import orders.enums.MiniMenuOptions;
+import orders.objects.Company;
+
 import java.util.ArrayList;
 import java.util.InputMismatchException;
 import java.util.List;
@@ -22,7 +26,7 @@ public class MyProjectMain {
             MainMenuOptions wybor = mainMenu.getMenuSelection();  // nie mogłem tego zapamiętać !!!! by zdefiniowac zmienną jako pobranie wyboru
 
             switch (wybor) {
-                case ZLOZ_ZAMOWIENIE:
+                case NEW_ORDER:
 
 
 
@@ -51,35 +55,35 @@ public class MyProjectMain {
                         ItemsActions itemsActions = new ItemsActions();
 
                         switch (wyborMiniMenu) {
-                            case DODAJ:
+                            case ADD:
 
-                                int numerPozycji;
+                                int positionNumber;
 
 
                                 try {
                                     System.out.print("Podaj number pozycji: ");
-                                    numerPozycji = skaner.nextInt();
+                                    positionNumber = skaner.nextInt();
 
                                 } catch (InputMismatchException e) {
                                     numberErrorMessage();
                                     stopMove();
                                     break;
                                 }
-                                OrderItem selectedItem = itemsMap.pobierzPozycje(numerPozycji);
+                                OrderItem selectedItem = itemsMap.pobierzPozycje(positionNumber);
                                 newOrder.dodajPozycje(selectedItem);
 //                                poniższa metoda nie działa  -> java.lang.NullPointerException
 //                                itemsActions.addItem(selectedItem);
                                 miniMenuNeeded = true;
                                 break;
 
-                            case WYPISZ:
+                            case PRINT:
 
                                 itemsActions.printOrderItems(newOrder);
                                 miniMenuNeeded = true;
                                 stopMove();
                                 break;
 
-                            case USUN:
+                            case DEL:
 
                                 itemsActions.printOrderItems(newOrder);
 
@@ -92,16 +96,16 @@ public class MyProjectMain {
                                 break;
 
 
-                            case ANULUJ:
+                            case CANCEL:
                                 listaNowychZamowien.remove(newOrder);
                                 miniMenuNeeded = false;
                                 break;
 
-                            case WROC:
+                            case BACK:
                                 miniMenuNeeded = false;
                                 break;
 
-                            case BLEDNY_WYBOR:
+                            case BAD_CHOICE:
                                 badChoiceMessage();
                                 miniMenuNeeded=true;
                                 break;
@@ -112,7 +116,7 @@ public class MyProjectMain {
                     break;
 
 
-                case STAN_ZAMOWIENIA:
+                case ORDER_STATUS:
                     System.out.println("Sprawdzanie stanu zamowienia");
                     System.out.print("Podaj jego number : ");
                     Scanner skaner2 = new Scanner(System.in);
@@ -142,7 +146,7 @@ public class MyProjectMain {
                     mainMenu.backMove();
                     break;
 
-                case WYPISZ_ZAMOWIENIA:
+                case CHECKOUT_ORDERS:
                     System.out.println("***** Podsumowanie zamówień *****");
                     float orderSummary = 0;
                     for (NewOrder pozycjeZListy : listaNowychZamowien) {
@@ -170,7 +174,7 @@ public class MyProjectMain {
                     mainMenu.backMove();
                     break;
 
-                case RACHUNEK:
+                case INVOICE:
 
                     StringBuilder topbuilder = new StringBuilder();
                     Company companyBill = new Company();
@@ -178,7 +182,7 @@ public class MyProjectMain {
                     topbuilder.append(companyBill.getCompanyData());
                     topbuilder.append("\n\n\n");
                     String data = ProjectUtils.obecnaData();
-                    topbuilder.append("\n***RACHUNEK").append(" z dnia ").append(data).append(" ***\n\n");
+                    topbuilder.append("\n***INVOICE").append(" z dnia ").append(data).append(" ***\n\n");
                     topbuilder.append("wykaz pozycji");
                     System.out.println(topbuilder);
                     linia();
@@ -209,7 +213,7 @@ public class MyProjectMain {
                     mainMenu.backMove();
                     break;
 
-                case ANULUJ_ZAMOWIENIE:
+                case CANCEL_ORDER:
                     System.out.print("Usuń zamówienie number:");
                     Scanner skaner3 = new Scanner(System.in);
                     int numerAnulowany = skaner3.nextInt();
@@ -219,12 +223,12 @@ public class MyProjectMain {
                     break;
 
 
-                case WYJDZ:
+                case EXIT:
                     goodBye();
                     warunek = false;
                     break;
 
-                case NIE_POPRAWNIE:
+                case BAD_CHOICE:
                     badChoiceMessage();
                     mainMenu.backMove();
             }

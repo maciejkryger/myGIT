@@ -1,4 +1,4 @@
-package orders;
+package orders.objects;
 
 /**
  * Company

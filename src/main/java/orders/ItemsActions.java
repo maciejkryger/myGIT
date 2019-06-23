@@ -33,13 +33,14 @@ public class ItemsActions {
 
 
     public void printOrderItems(NewOrder newOrder){
-        List <OrderItem> pozycjeZamowienia = newOrder.itemList;
-        pozycjeZamowienia=newOrder.itemList;
-        int nrPoz =1;
-        for (OrderItem pozycja: pozycjeZamowienia){
-            System.out.print(nrPoz+" ");
-            System.out.println(pozycja);
-            nrPoz++;
+        List <OrderItem> orderItems = newOrder.itemList;
+        orderItems=newOrder.itemList;
+        int positionNumber =1;
+        for (OrderItem item: orderItems){
+            StringBuilder builderPrintOrderItems= new StringBuilder();
+            builderPrintOrderItems.append(positionNumber).append(" ").append(item);
+            System.out.println(builderPrintOrderItems);
+            positionNumber++;
         }
 
     }

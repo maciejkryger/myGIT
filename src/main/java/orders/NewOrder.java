@@ -57,8 +57,8 @@ public class NewOrder {
 
 
 
-    public void dodajPozycje(OrderItem wybranaPozycja){
-        itemList.add(wybranaPozycja);
+    public void dodajPozycje(OrderItem selectedItem){
+        itemList.add(selectedItem);
 
     }
 
@@ -75,7 +75,7 @@ public class NewOrder {
 
 //        String data = ProjectUtils.obecnaData();
 //        StringBuilder builderNaglowek = new StringBuilder();
-//        builderNaglowek.append("\"***RACHUNEK***\"").append("\n\n");
+//        builderNaglowek.append("\"***INVOICE***\"").append("\n\n");
 //        builderNaglowek.append("wykaz pozycji rachunku nr ").append(numerRachunku).append(" z dnia ").append(data);
 //        System.out.println(builderNaglowek);
 

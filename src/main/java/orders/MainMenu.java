@@ -1,5 +1,7 @@
 package orders;
 
+import orders.enums.MainMenuOptions;
+
 import java.util.Scanner;
 
 import static orders.PrintMessages.numberErrorMessage;
@@ -42,25 +44,25 @@ public class MainMenu {
 
         switch (wybor){
             case 0:
-                return MainMenuOptions.WYJDZ;
+                return MainMenuOptions.EXIT;
 
             case 1:
-                return MainMenuOptions.ZLOZ_ZAMOWIENIE;
+                return MainMenuOptions.NEW_ORDER;
 
             case 2:
-                return MainMenuOptions.STAN_ZAMOWIENIA;
+                return MainMenuOptions.ORDER_STATUS;
 
             case 3:
-                return MainMenuOptions.WYPISZ_ZAMOWIENIA;
+                return MainMenuOptions.CHECKOUT_ORDERS;
 
             case 4:
-                return MainMenuOptions.RACHUNEK;
+                return MainMenuOptions.INVOICE;
 
             case 5:
-                return MainMenuOptions.ANULUJ_ZAMOWIENIE;
+                return MainMenuOptions.CANCEL_ORDER;
 
             default:
-                return MainMenuOptions.NIE_POPRAWNIE;
+                return MainMenuOptions.BAD_CHOICE;
         }
 
     }

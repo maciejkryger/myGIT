@@ -1,5 +1,7 @@
 package orders;
 
+import orders.enums.MiniMenuOptions;
+
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
@@ -31,22 +33,22 @@ public class MiniMenu {
 
         switch (wyborMiniMenu){
             case 1:
-                return MiniMenuOptions.DODAJ;
+                return MiniMenuOptions.ADD;
 
             case 2:
-                return MiniMenuOptions.WYPISZ;
+                return MiniMenuOptions.PRINT;
 
             case 3:
-                return MiniMenuOptions.USUN;
+                return MiniMenuOptions.DEL;
 
             case 4:
-                return MiniMenuOptions.ANULUJ;
+                return MiniMenuOptions.CANCEL;
 
             case 0:
-                return MiniMenuOptions.WROC;
+                return MiniMenuOptions.BACK;
 
             default:
-                return MiniMenuOptions.BLEDNY_WYBOR;
+                return MiniMenuOptions.BAD_CHOICE;
         }
 
     }
