@@ -3,7 +3,7 @@ package orders;
 import java.util.ArrayList;
 import java.util.List;
 
-import static orders.PrintMessages.linia;
+import static orders.PrintMessages.line;
 
 public class NewOrder {
 
@@ -53,11 +53,12 @@ public class NewOrder {
     public void dodajPozycje(String itemName, float itemPrice){    // nie mogłem tego zapamiętać !!!!
         OrderItem item = new OrderItem(itemName,itemPrice); // nie mogłem tego zapamiętać !!!!
         itemList.add(item); // nie mogłem tego zapamiętać !!!!
+        //metoda służyła do dodania manualnego nazwy i ceny, teraz jest inna metoda, która dodaje z itemsBaseMenu
     }
 
 
 
-    public void dodajPozycje(OrderItem selectedItem){
+    public void addItem(OrderItem selectedItem){
         itemList.add(selectedItem);
 
     }
@@ -65,7 +66,7 @@ public class NewOrder {
     public void calculate(){
         float payment=0;
         for (OrderItem item : itemList){ // nie mogłem tego zapamiętać !!!! że trzeba podać typ pozycji OrderItem
-            float price = item.getPrice(); // nie mogłem tego zapamiętać !!!! - cała linia
+            float price = item.getPrice(); // nie mogłem tego zapamiętać !!!! - cała line
             payment += price; // nie mogłem tego zapamiętać !!!! że dodaje cene, która jest wyżej zdefiniowana
         }
         price = payment; // nie mogłem tego zapamiętać !!!!o tym nie pomyślałem
@@ -79,7 +80,7 @@ public class NewOrder {
 //        builderNaglowek.append("wykaz pozycji rachunku nr ").append(numerRachunku).append(" z dnia ").append(data);
 //        System.out.println(builderNaglowek);
 
-        linia();
+        line();
 
         float totalAccount=0;
 
@@ -90,7 +91,7 @@ public class NewOrder {
 
                 totalAccount+=getPrice();
                 calculate();
-                linia();
+                line();
 
                 itemPositionNumber++;
             }

@@ -54,7 +54,7 @@ public class Company {
         builder.append("Nazwa firmy:\t").append(getCompanyName()).append("\n");
         builder.append("Adres:\t").append(getStreet()).append(" ").append(houseNumber).append(", ");
         builder.append("").append(postCode).append(" ").append(city).append("\n");
-        builder.append("NIP:\t").append(nip);// companyName i enter - nowa linia
+        builder.append("NIP:\t").append(nip);// companyName i enter - nowa line
         return builder.toString();
     }
 

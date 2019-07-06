@@ -1,8 +1,8 @@
 package orders.factory.objects;
 
-import orders.factory.interfaces.Food_Item_Interface;
+import orders.factory.interfaces.PizzaItem;
 
-public class Beer implements Food_Item_Interface {
+public class Beer implements PizzaItem {
 
     private String beerName;
     private float beerPrice;

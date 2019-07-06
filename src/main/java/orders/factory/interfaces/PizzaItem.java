@@ -1,6 +1,6 @@
 package orders.factory.interfaces;
 
-public interface Food_Item_Interface {
+public interface PizzaItem {
 
 
     String getName();

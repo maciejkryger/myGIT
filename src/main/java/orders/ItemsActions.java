@@ -1,5 +1,6 @@
 package orders;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
@@ -13,7 +14,7 @@ public class ItemsActions {
 
 
     public ItemsActions(){
-
+        this.itemsList = new ArrayList();
     }
 
     public ItemsActions(NewOrder newOrder){

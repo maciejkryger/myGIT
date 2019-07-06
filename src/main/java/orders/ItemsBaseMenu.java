@@ -1,8 +1,8 @@
 package orders;
 
-import orders.factory.JavaRestaurantFactory;
+import orders.factory.JavaFoodFactory;
 import orders.factory.enums.PizzaMenuNames;
-import orders.factory.interfaces.Food_Item_Interface;
+import orders.factory.interfaces.PizzaItem;
 import orders.factory.interfaces.PizzaFactory;
 
 import java.util.HashMap;
@@ -10,12 +10,12 @@ import java.util.HashMap;
 public class ItemsBaseMenu extends HashMap<Integer, OrderItem> {
 
 
-    PizzaFactory pizzaFactory = new JavaRestaurantFactory();
-    Food_Item_Interface pizza1 = pizzaFactory.producePizza(PizzaMenuNames.MARGHERITA);
-    Food_Item_Interface pizza2 = pizzaFactory.producePizza(PizzaMenuNames.FUNGHI);
-    Food_Item_Interface pizza3 = pizzaFactory.producePizza(PizzaMenuNames.CAPRICCIOSA);
-    Food_Item_Interface pizza4 = pizzaFactory.producePizza(PizzaMenuNames.TROPICANA);
-    Food_Item_Interface pizza5 = pizzaFactory.producePizza(PizzaMenuNames.VEGETARIANA);
+    PizzaFactory pizzaFactory = new JavaFoodFactory();
+    PizzaItem pizza1 = pizzaFactory.producePizza(PizzaMenuNames.MARGHERITA);
+    PizzaItem pizza2 = pizzaFactory.producePizza(PizzaMenuNames.FUNGHI);
+    PizzaItem pizza3 = pizzaFactory.producePizza(PizzaMenuNames.CAPRICCIOSA);
+    PizzaItem pizza4 = pizzaFactory.producePizza(PizzaMenuNames.TROPICANA);
+    PizzaItem pizza5 = pizzaFactory.producePizza(PizzaMenuNames.VEGETARIANA);
     /**
      * konstruktor, który tworzy bazę pozycji wymaganej do projektu zamówień
      */
@@ -59,19 +59,19 @@ public class ItemsBaseMenu extends HashMap<Integer, OrderItem> {
      *
      *
      */
-    public void wypiszPozycjeZBazy(){
-        StringBuilder podsumowanieNapis = new StringBuilder();
+    public void printItemsMenu(){
+        StringBuilder printItemMenuBuilder = new StringBuilder();
         System.out.println("\nJadłospis:");
         System.out.println("-----------");
 
-        for (Entry<Integer, OrderItem> element: entrySet()){
-            int numer = element.getKey();
-            OrderItem orderItem = element.getValue();
-            String nazwa = orderItem.getName();
-            float cena = orderItem.getPrice();
-            podsumowanieNapis.append(numer).append(" ").append(nazwa).append(" ").append(cena).append("\n");
+        for (Entry<Integer, OrderItem> mapItem: entrySet()){
+            int mapPosition = mapItem.getKey();
+            OrderItem orderItem = mapItem.getValue();
+            String orderItemName = orderItem.getName();
+            float orderItemPrice = orderItem.getPrice();
+            printItemMenuBuilder.append(mapPosition).append(". ").append(orderItemName).append(" cena: ").append(orderItemPrice).append(" PLN\n");
         }
-        System.out.println(podsumowanieNapis);
+        System.out.println(printItemMenuBuilder);
     }
 }
 

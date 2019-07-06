@@ -40,14 +40,14 @@ public class OrderItem {
         StringBuilder builder = new StringBuilder();
         builder.append("----------------------------------------------- ").append("\n")
                 .append(itemPositionNumber).append(". \n")
-                .append("\t Nazwa: ").append(itemName).append("\tprice: ").append(itemPrice).append(" zł\n")
+                .append("\t Nazwa: ").append(itemName).append("\tcena: ").append(itemPrice).append(" PLN\n")
                 .append("\t Ilość: ").append(numberOfItems)
-                .append("\t Do zapłaty: ").append(getSum()).append(" zł\n");
+                .append("\t Do zapłaty: ").append(getSum()).append(" PLN\n");
 
         System.out.println(builder.toString());
     }
     public String toString(){
-        return itemName + " price: " + itemPrice +" PLN";
+        return itemName + " cena: " + itemPrice +" PLN";
 
     }
 }

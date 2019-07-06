@@ -8,7 +8,7 @@ import orders.factory.objects.Pizza;
 
 import static orders.PrintMessages.badChoiceMessage;
 
-public class JavaRestaurantFactory implements PizzaFactory {
+public class JavaFoodFactory implements PizzaFactory {
 
 
 

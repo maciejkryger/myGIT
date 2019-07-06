@@ -1,12 +1,12 @@
 package orders.factory.objects;
 
-import orders.factory.interfaces.Food_Item_Interface;
+import orders.factory.interfaces.PizzaItem;
 import orders.factory.enums.PizzaAdditives;
 import orders.factory.enums.PizzaSauces;
 
 import java.util.ArrayList;
 
-public class Pizza implements Food_Item_Interface {
+public class Pizza implements PizzaItem {
 
     private String pizzaName;
     private int pizzaPrice;

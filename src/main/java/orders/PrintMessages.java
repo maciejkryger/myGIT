@@ -13,6 +13,15 @@ public class PrintMessages {
         System.out.println("wybór musi być cyfrą");
     }
 
+    public static void nullErrorMessage(){
+        StringBuilder builderTekst = new StringBuilder();
+        builderTekst.append("=====================================\n").
+                append("= wybrałeś pustą pozycję, wybierz inną... =\n").
+                append("=====================================");
+        System.out.println(builderTekst);
+
+    }
+
     public static void badChoiceMessage() {
         StringBuilder builderTekst = new StringBuilder();
         builderTekst.append("=====================================\n").
@@ -21,7 +30,7 @@ public class PrintMessages {
         System.out.println(builderTekst);
     }
 
-    public static void linia () {
+    public static void line() {
         System.out.println("-----------------------------------------------");
     }
 
