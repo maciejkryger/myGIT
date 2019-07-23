@@ -2,7 +2,7 @@ package orders;
 
 import java.util.Scanner;
 
-public class PrintMessages {
+public class MessagesBox {
 
 
     public static void goodBye(){

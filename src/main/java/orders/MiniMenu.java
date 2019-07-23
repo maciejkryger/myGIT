@@ -5,7 +5,7 @@ import orders.enums.MiniMenuOptions;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
-import static orders.PrintMessages.numberErrorMessage;
+import static orders.MessagesBox.numberErrorMessage;
 
 public class MiniMenu {
 

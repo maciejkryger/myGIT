@@ -3,7 +3,7 @@ package orders;
 import java.util.ArrayList;
 import java.util.List;
 
-import static orders.PrintMessages.line;
+import static orders.MessagesBox.line;
 
 public class NewOrder {
 

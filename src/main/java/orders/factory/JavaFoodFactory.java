@@ -6,7 +6,7 @@ import orders.factory.enums.PizzaMenuNames;
 import orders.factory.enums.PizzaSauces;
 import orders.factory.objects.Pizza;
 
-import static orders.PrintMessages.badChoiceMessage;
+import static orders.MessagesBox.badChoiceMessage;
 
 public class JavaFoodFactory implements PizzaFactory {
 

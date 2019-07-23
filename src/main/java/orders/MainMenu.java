@@ -4,7 +4,7 @@ import orders.enums.MainMenuOptions;
 
 import java.util.Scanner;
 
-import static orders.PrintMessages.numberErrorMessage;
+import static orders.MessagesBox.numberErrorMessage;
 
 public class MainMenu {
 

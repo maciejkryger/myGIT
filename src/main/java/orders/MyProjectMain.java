@@ -12,7 +12,7 @@ import java.util.InputMismatchException;
 import java.util.List;
 import java.util.Scanner;
 
-import static orders.PrintMessages.*;
+import static orders.MessagesBox.*;
 
 public class MyProjectMain {
 
@@ -101,6 +101,7 @@ public class MyProjectMain {
 
                             case DEL:
 
+                                try{
                                 itemsActions.printOrderItems(newOrder);
 
                                 System.out.print("Podaj number pozycji do usunięcia: ");
@@ -108,7 +109,12 @@ public class MyProjectMain {
 
                                 itemsActions.delOrderItem(newOrder, orderItemToDelNumber);
                                 logger.debug("deleted Order Item: "+orderItemToDelNumber, MyProjectMain.class.getSimpleName());
-                                miniMenuNeeded = true;
+                                miniMenuNeeded = true;}
+                                catch (Exception e){
+                                    nullErrorMessage();
+                                    stopMove();
+
+                                }
                                 break;
 
 
