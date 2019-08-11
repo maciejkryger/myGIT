@@ -70,5 +70,5 @@ public class Company {
 
     public  String getCity() {return city;}
 
-    public String getNip() {return postCode;}
+    public String getNip() {return nip;}
 }
