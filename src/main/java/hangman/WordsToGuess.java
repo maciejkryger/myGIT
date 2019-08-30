@@ -88,7 +88,7 @@ public class WordsToGuess {
         for (char word : wordsToGuessTable) {
             wordFromTableBuilder.append(word).append(" ");
         }
-        System.out.print(wordFromTableBuilder);
+        System.out.println(wordFromTableBuilder);
     }
 
     protected void removeGuessedWord(String word, List<String>words, int languageChoose){

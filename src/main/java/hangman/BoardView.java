@@ -112,7 +112,7 @@ public class BoardView {
     protected void printSeparateLine() {
         StringBuilder separateLineBuilder = new StringBuilder();
         separateLineBuilder
-                .append("\n|                                   |\n")
+                .append("|                                   |\n")
                 .append("-------------------------------------\n");
         System.out.print(separateLineBuilder);
     }
